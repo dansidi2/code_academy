@@ -12,8 +12,14 @@ def username_generator(first_name, last_name):
     return username
 
 
-def password_generator(first_name, last_name):
-    pass
+def password_generator(username):
+    password = ""
+    username_length = len(username)
+
+    for i in range(username_length):
+        password += username[(i-1) % username_length]
+    return password
 
 
 print(username_generator('Abe', 'Simpson'))
+print(password_generator(username_generator('Abe', 'Simpson')))
